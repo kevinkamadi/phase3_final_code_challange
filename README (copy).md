@@ -1,50 +1,35 @@
-Restaurants-code-challenge
+Restaurant and Customer Management System This project is a simple Python application implementing a Restaurant and Customer Management System using Flask, Flask-SQLAlchemy, and Flask-Migrate. The system includes models for Restaurant, Customer, and Review. It provides basic functionalities such as creating tables, performing migrations, and interacting with the database.
 
-This code challenge focuses on building a domain model for restaurant reviews using SQLAlchemy. It involves defining relationships between three primary models: Restaurant, Review, and Customer.
-Model Relationships
+Instructions Prerequisites:
 
-    A Restaurant has many Reviews.
-    A Customer has many Reviews.
-    A Review belongs to both a Restaurant and a Customer.
+Python 3 Flask Flask-SQLAlchemy Flask-Migrate Install dependencies using:
 
-The Directory
+bash Copy code pip3 install Flask Flask-SQLAlchemy Flask-Migrate Installation:
 
-    /alembic: Contains migration scripts and configurations for database management using Alembic.
-    /models: Includes model definitions for Restaurant, Review, and Customer.
-    seeds.py: Populates sample data into the database to facilitate testing and development.
+Clone the repository:
 
-Getting Started
+bash Copy code git clone https://github.com/your-username/code-ch-sql.git cd code-ch-sql Install dependencies:
 
-    Setting Up Database Schema:
-        Use SQLAlchemy Migrations to create tables for Restaurant, Customer, and Review.
-        Establish relationships between tables according to the provided instructions.
-        Seed the database with sample instances of Restaurant and Customer.
+bash Copy code pip3 install -r requirements.txt Database Initialization:
 
-    Object Relationship Methods:
-        Implement methods within each class to handle object relationships:
-            Review.customer(), Review.restaurant()
-            Restaurant.reviews(), Restaurant.customers()
-            Customer.reviews(), Customer.restaurants()
+Initialize Flask-Migrate:
 
-    Aggregate and Relationship Methods:
-        Develop aggregate methods for:
-            Customer: full_name(), favorite_restaurant(), add_review(), delete_reviews()
-            Review: full_review()
-            Restaurant: fanciest(), all_reviews()
+bash Copy code flask db init Create a migration script:
 
-Evaluation Rubric
+bash Copy code flask db migrate -m "Create reviews table" Apply the migration:
 
-    Folder Structure: Ensure all necessary files and directories are correctly structured.
+bash Copy code flask db upgrade Running the Application:
 
-    Initializers and Methods: Implement all required methods within the classes.
+Run the app.py script:
 
-    Object Relationship Methods: Verify the accuracy of object relationship methods.
+bash Copy code python3 app.py Sample Data:
 
-    Method Usage and Correctness: Ensure methods are appropriately used and yield correct results.
+Populate the database with sample data:
 
-Author
+bash Copy code python3 seeds.py Deliverables Object Relationship Methods:
 
-Kevin Kamadi Mahindu
-License
+Review.customer(): Returns the Customer instance for a review. Review.restaurant(): Returns the Restaurant instance for a review. Restaurant.reviews(): Returns all reviews for the restaurant. Restaurant.customers(): Returns all customers who reviewed the restaurant. Customer.reviews(): Returns all reviews left by the customer. Customer.restaurants(): Returns all restaurants reviewed by the customer. Aggregate and Relationship Methods:
 
-For information about the license go to the license file [LICENSE].
+Customer.full_name(): Returns the full name of the customer. Customer.favorite_restaurant(): Returns the restaurant with the highest star rating from the customer. Customer.add_review(restaurant, rating): Adds a new review for the restaurant. Customer.delete_reviews(restaurant): Deletes all reviews for a restaurant by the customer. Review.full_review(): Returns a formatted string for a review. Restaurant.fanciest(): Returns the restaurant with the highest price. Restaurant.all_reviews(): Returns a list of strings with all reviews for the restaurant. Contributing Contributions are welcome! Feel free to submit issues or pull requests.
+
+License This project is licensed under the MIT License.
